@@ -75,8 +75,8 @@ class Validator(object):
 					rtl_word.greedy_decode(rtl)
 
 					if ltr_word.ended and rtl_word.ended:
-						ltr_word.strip_special_symbols()
-						rtl_word.strip_special_symbols()
+						# ltr_word.strip_special_symbols()
+						# rtl_word.strip_special_symbols()
 
 						if ltr_word.probability >= rtl_word.probability or not self.config.BIDIRECTIONAL_DECODING:
 							predicted_word = ltr_word.characters

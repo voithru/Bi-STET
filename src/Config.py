@@ -10,10 +10,10 @@ class Config:
 	"""
 
 	RANDOM_SEED = 42
-	EXPERIMENT_NAME = 'final'
-	ROOT_OUT_FOLDER = '../out'
+	EXPERIMENT_NAME = 'ko_ocr'
+	ROOT_OUT_FOLDER = '/flute/outputs'
 	OUPUT_FOLDER = os.path.join(ROOT_OUT_FOLDER, EXPERIMENT_NAME)
-	OUTFILE = 'bi-stet.cp'
+	OUTFILE = 'bi-stet_ko_ocr.cp'
 	LOG_FNAME = 'logging.log'
 	SAMPLES_PER_BATCH = 64
 
@@ -32,70 +32,21 @@ class Config:
 
 		# TRAIN DATASETS
 
-		self.LOAD_PICKLE = True
+		self.LOAD_PICKLE = False
 
-		self.SYNHT90K_ROOT = '..data/mnt/ramdisk/max/90kDICT32px'
-		self.SYNTH90K_ANNOTATIONS = 'Synth90k-Annotations.txt'
-
-		self.SYNTH_TEXT_ROOT = '..data/mnt/ramdisk/max/90kDICT32px/SynthTextCropped'
-		self.SYNTH_TEXT_ANNOTATIONS = 'SynthText-Cropped-Annotations.txt'
-
-		self.SYNHT90K_LOCAL_PICKLE_ROOT = '../data/Synth90k/'
-		self.SYNTH90K_LOCAL_PICKLE_ANNOTATIONS = 'synth90k.pickle'
-
-		self.SYNHT90K_PICKLE_ROOT = '../data/Synth90k'
-		self.SYNTH90K_PICKLE_ANNOTATIONS = 'synth90k.pickle'
-
-		self.SYNTH_TEXT_PICKLE_ROOT = '../data/SynthTextCropped'
-		self.SYNTH_TEXT_PICKLE_ANNOTATIONS = 'Synth-text-cropped.pickle'
-
-		self.SYNTH_TEXT_EXTEDNED_PICKLE_ROOT = '/../data/SynthText-Cropped-Extended'
-		self.SYNTH_TEXT_EXTENDED_PICKLE_ANNOTATIONS = 'synth-text-extended.pickle'
-
-		self.LOCAL_DATA_ROOT = '../data/test_train'
-		self.LOCAL_DATA_ANNOTATIONS = 'annotations.txt'
+		self.KO_OCR_TRAIN_ROOT = '/flute/data/ko_ocr/train/cropped/'
+		self.KO_OCR_TRAIN_ANNOTATIONS = 'annotations.txt'
 
 		self.LOG_FNAME = self.LOG_FNAME
 
 		self.TRAIN_DATASETS = [
-				(self.SYNTH_TEXT_EXTEDNED_PICKLE_ROOT, self.SYNTH_TEXT_EXTENDED_PICKLE_ANNOTATIONS),
-				(self.SYNTH_TEXT_PICKLE_ROOT, self.SYNTH_TEXT_PICKLE_ANNOTATIONS),
-				(self.SYNHT90K_PICKLE_ROOT, self.SYNTH90K_PICKLE_ANNOTATIONS),
-				# (self.SYNHT90K_LOCAL_PICKLE_ROOT, self.SYNTH90K_PICKLE_ANNOTATIONS),
-				# (self.SYNTH_TEXT_ROOT, self.SYNTH_TEXT_ANNOTATIONS, 'SynthText'),
-				# (self.SYNHT90K_ROOT, self.SYNTH90K_ANNOTATIONS, 'Synth90K'),
-				# (self.LOCAL_DATA_ROOT, self.LOCAL_DATA_ANNOTATIONS, 'local_test_dataset')
+			(self.KO_OCR_TRAIN_ROOT, self.KO_OCR_TRAIN_ANNOTATIONS)
 		]
 	
 		# TEST DATASETS
 
-		self.IIIT5K_LOCAL_ROOT = '../data/validation-sets/IIIT5K'
-		self.IIIT5K_ROOT = '../data/test/IIIT5K'
-		self.IIIT5K_DATA_ANNOTATIONS = 'test/iiit5k_annotations.txt'
-
-		self.ICDAR03_ROOT = '../data/validation-sets/ICDAR03/SceneTrialTest/text_recognition'
-		self.ICDAR03_DATA_ANNOTATIONS = 'icdar03_annotations.txt'
-
-		self.ICDAR03_ROOT_LOCAL =  '../data/validation-sets/ICDAR03/SceneTrialTest/text_recognition/'
-		self.ICDAR03_DATA_ANNOTATIONS_LOCAL = 'icdar03_annotations.txt'
-
-		self.ICDAR13_ROOT = '../data/validation-sets/ICDAR13/text_recognition'
-		self.ICDAR13_DATA_ANNOTATIONS = 'icdar13_annotations.txt'
-
-		self.ICDAR13_ROOT_LOCAL = '../data/validation-sets/ICDAR13/text_recognition/'
-		self.ICDAR13_DATA_ANNOTATIONS_LOCAL = 'icdar13_annotations.txt'
-
-		self.ICDAR15_ROOT = '../data/validation-sets/ICDAR15'
-		self.ICDAR15_DATA_ANNOTATIONS = 'icdar15_annotations.txt'
-
-		self.CUTE80_ROOT = '../data/validation-sets/CUTE80'
-		self.CUTE80_DATA_ANNOTATIONS = 'cute80_annotations.txt'
-
-		self.SVT_ROOT = '../data/validation-sets/SVT/text_recognition'
-		self.SVT_DATA_ANNOTATIONS = 'icdar03_annotations.txt'
-
-		self.SVTP_ROOT = '../data/validation-sets/SVTP'
-		self.SVTP_DATA_ANNOTATIONS = 'svtp_annotations.txt'
+		self.KO_OCR_VALID = '/flute/data/ko_ocr/valid/cropped'
+		self.KO_OCR_VALID_ANNOTATIONS = 'annotations.txt'
 
 		# OUTPUT FOLDERS
 
@@ -140,6 +91,8 @@ class Config:
 
 		self.LOAD_MODEL = True
 		self.VALIDATE = True
+
+		self.EVAL_ONLY = True
 
 		self.CONFIG_FNAME = 'config.cpkl'
 		self.MODEL_FILE = None
@@ -191,10 +144,10 @@ class Config:
 	def set_validation_config(self):
 
 		self.VALIDATE = True
-		self.MODEL_FILE = 'bi-stet.cp'
+		self.MODEL_FILE = 'bi-stet_ko_ocr.cp'
 		self.LOAD_MODEL = True
-		self.EXPERIMENT_NAME = 'final'
-		self.ROOT_OUT_FOLDER = '../out'
+		self.EXPERIMENT_NAME = 'valid'
+		self.ROOT_OUT_FOLDER = '/flute/outputs/ko_ocr'
 
 		self.OUPUT_FOLDER = os.path.join(self.ROOT_OUT_FOLDER, self.EXPERIMENT_NAME)
 		self.LEXICON_INFERENCE = True
@@ -208,14 +161,5 @@ class Config:
 		self.BIDIRECTIONAL_DECODING = True
 
 		self.VALIDATION_DATASETS = [
-			(self.IIIT5K_ROOT, self.IIIT5K_DATA_ANNOTATIONS, 'iiit5k'),
-			(self.ICDAR03_ROOT, self.ICDAR03_DATA_ANNOTATIONS, 'icdar03'),
-			(self.SVT_ROOT, self.SVT_DATA_ANNOTATIONS, 'svt'),
-			(self.ICDAR13_ROOT, self.ICDAR13_DATA_ANNOTATIONS, 'icdar13'),
-			(self.ICDAR15_ROOT, self.ICDAR15_DATA_ANNOTATIONS, 'icdar15'),
-			(self.CUTE80_ROOT, self.CUTE80_DATA_ANNOTATIONS, 'cute80'),
-			(self.SVTP_ROOT, self.SVTP_DATA_ANNOTATIONS, 'svtp'),
-			(self.ICDAR03_ROOT_LOCAL, self.ICDAR03_DATA_ANNOTATIONS_LOCAL, 'icdar03_local'),
-			(self.ICDAR13_ROOT_LOCAL, self.ICDAR13_DATA_ANNOTATIONS_LOCAL, 'icdar13_local'),
-			(self.IIIT5K_LOCAL_ROOT, self.IIIT5K_DATA_ANNOTATIONS, 'iiit5k'),
+			(self.KO_OCR_VALID, self.KO_OCR_VALID_ANNOTATIONS, 'ko_ocr_valid')
 		]

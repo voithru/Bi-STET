@@ -43,14 +43,7 @@ if __name__ == '__main__':
 			file=config.MODEL_FILE
 		)
 
-	validator = Validator(
-		model=bi_stet.model,
-		dataset_paths=config.VALIDATION_DATASETS,
-		config=config,
-		device=device
-	)
-
-	if not config.VALIDATE:
+	if not config.EVAL_ONLY:
 
 		config.store_config(path=Config.OUPUT_FOLDER)
 		config.print_config(store=True)
@@ -59,10 +52,27 @@ if __name__ == '__main__':
 			config=config,
 			device=device,
 		)
-		
+
 		trainer.train()
+
+		if config.VALIDATE:
+			config.set_validation_config()
+			validator = Validator(
+				model=bi_stet.model,
+				dataset_paths=config.VALIDATION_DATASETS,
+				config=config,
+				device=device
+			)
+			validator.validate(show_examples=config.SHOW_EXAMPLES)
 
 	else:
 
+		config.set_validation_config()
 		config.print_config(store=False)
+		validator = Validator(
+			model=bi_stet.model,
+			dataset_paths=config.VALIDATION_DATASETS,
+			config=config,
+			device=device
+		)
 		validator.validate(show_examples=config.SHOW_EXAMPLES)

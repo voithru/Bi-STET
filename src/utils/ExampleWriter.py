@@ -36,8 +36,8 @@ class ExampleWriter(object):
 		folder_path = os.path.join(self.config.OUPUT_FOLDER, self.example_path, dataset_name)
 		make_folder(folder_path, '')
 
-		self.incorrect_example_file = open(os.path.join(folder_path, 'incorrect_examples.txt'), 'w')
-		self.correct_example_file = open(os.path.join(folder_path, 'correct_examples.txt'), 'w')
+		self.incorrect_example_file = open(os.path.join(folder_path, 'incorrect_examples.txt'), 'w', encoding='utf-8')
+		self.correct_example_file = open(os.path.join(folder_path, 'correct_examples.txt'), 'w', encoding='utf-8')
 
 	def write_example(self, image_id, prediction, label):
 		"""

@@ -6,6 +6,12 @@ import torch.utils.data as data
 from six import BytesIO as IO
 from PIL import Image
 
+with open('/flute/data/kor_char_list.csv', 'r', encoding='utf-8') as char_file :
+    char_data = char_file.read().splitlines()
+    char_list = []
+    for row in char_data :
+        char = row.split(',', maxsplit=1)[1]
+        char_list.append(char)
 
 class Dataset(data.Dataset):
 	"""
@@ -15,7 +21,7 @@ class Dataset(data.Dataset):
 	PAD_ID = 0
 	GO_ID = 1
 	EOS_ID = 2
-	CHAR_ID_MAP = ['', '', ''] + list('0123456789abcdefghijklmnopqrstuvwxyz') + list('!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~')
+	CHAR_ID_MAP = ['', '', ''] + char_list
 	MAX_SEQUENCE_LENGTH = 24
 
 	def __init__(self, root_folder, annotation_file, input_transform, load_pickle=False, validation_set=False):
