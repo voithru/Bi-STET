@@ -9,7 +9,7 @@ import glob
 import copy
 import numpy as np
 from collections import defaultdict
-from Dataset import Dataset
+from bistet.src.Dataset import Dataset
 from torch.utils.data import DataLoader
 
 

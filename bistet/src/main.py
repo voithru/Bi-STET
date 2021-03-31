@@ -1,10 +1,10 @@
 import numpy as np
 import torch
-from Config import Config
-from Trainer import Trainer
-from Validator import Validator
-from BiSTET import BiSTET
-from utils.utils_functions import make_logger, make_folder, get_latest_check_point
+from bistet.src.Config import Config
+from bistet.src.Trainer import Trainer
+from bistet.src.Validator import Validator
+from bistet.src.BiSTET import BiSTET
+from bistet.src.utils.utils_functions import make_logger, make_folder, get_latest_check_point
 import random
 import torch.backends.cudnn as cudnn
 

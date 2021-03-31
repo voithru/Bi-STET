@@ -1,7 +1,7 @@
 import torch.nn as nn
 import torch
 import numpy as np
-from utils.utils_functions import get_attention_distributions
+from bistet.src.utils.utils_functions import get_attention_distributions
 
 
 class EncoderDecoder(nn.Module):
@@ -75,6 +75,7 @@ class EncoderDecoder(nn.Module):
 		nbatches = memory.size(0)
 
 		if not self.bidirectional_decoding or rtl_targets is None:
+			print("ltr")
 			ltr = self.prediction_layer(self.decoder(self.tgt_embed(ltr_targets) + self.direction_embed(torch.from_numpy(np.zeros((nbatches, 1))).to(self.device)), memory, src_mask, ltr_tgt_mask)), None
 			self.ltr_attn_dist = get_attention_distributions(self.encoder, self.decoder)
 			return ltr

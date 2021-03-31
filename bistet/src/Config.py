@@ -11,7 +11,7 @@ class Config:
 
 	RANDOM_SEED = 42
 	EXPERIMENT_NAME = 'ko_ocr'
-	ROOT_OUT_FOLDER = '/flute/outputs'
+	ROOT_OUT_FOLDER = '../outputs'
 	OUPUT_FOLDER = os.path.join(ROOT_OUT_FOLDER, EXPERIMENT_NAME)
 	OUTFILE = 'bi-stet_ko_ocr.cp'
 	LOG_FNAME = 'logging.log'
@@ -89,7 +89,7 @@ class Config:
 		self.LR_MILESTONES = [150000, 300000, 400000]
 		self.LR_GAMMA = 0.1
 
-		self.LOAD_MODEL = True
+		self.LOAD_MODEL = False
 		self.VALIDATE = True
 
 		self.EVAL_ONLY = True

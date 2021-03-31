@@ -1,6 +1,6 @@
 import torch.nn as nn
-from utils.utils_functions import attention
-from utils.utils_functions import clones
+from bistet.src.utils.utils_functions import attention
+from bistet.src.utils.utils_functions import clones
 
 
 class MultiHeadedAttention(nn.Module):

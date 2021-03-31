@@ -3,19 +3,19 @@ import copy
 import torch
 import logging
 import torch.nn as nn
-from Dataset import Dataset
-from Decoder import Decoder
-from DecoderLayer import DecoderLayer
-from Embeddings import Embeddings
-from Encoder import Encoder
-from EncoderDecoder import EncoderDecoder
-from EncoderLayer import EncoderLayer
-from MultiHeadedAttention import MultiHeadedAttention
-from PositionalEncoding import PositionalEncoding
-from PositionwiseFeedForward import PositionwiseFeedForward
-from PredictionLayer import PredictionLayer
-from ResNet import ResNet, BasicBlock
-from FeatureExtractionNetwork import FeatureExtractionNetwork
+from bistet.src.Dataset import Dataset
+from bistet.src.Decoder import Decoder
+from bistet.src.DecoderLayer import DecoderLayer
+from bistet.src.Embeddings import Embeddings
+from bistet.src.Encoder import Encoder
+from bistet.src.EncoderDecoder import EncoderDecoder
+from bistet.src.EncoderLayer import EncoderLayer
+from bistet.src.MultiHeadedAttention import MultiHeadedAttention
+from bistet.src.PositionalEncoding import PositionalEncoding
+from bistet.src.PositionwiseFeedForward import PositionwiseFeedForward
+from bistet.src.PredictionLayer import PredictionLayer
+from bistet.src.ResNet import ResNet, BasicBlock
+from bistet.src.FeatureExtractionNetwork import FeatureExtractionNetwork
 
 
 class BiSTET(object):

@@ -1,6 +1,6 @@
 import logging
 import numpy as np
-from utils.Timer import Timer
+from bistet.src.utils.Timer import Timer
 from tensorboardX import SummaryWriter
 
 

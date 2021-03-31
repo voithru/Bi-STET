@@ -1,12 +1,15 @@
 import logging
 import numpy as np
-from utils.utils_functions import get_dataset_loader
-from utils.visualization import visualize_attention
-from utils.utils_functions import subsequent_mask
-from utils.Word import Word
-from utils.WordLengthAccuracy import WordLengthAccuracy
-from utils.ExampleWriter import ExampleWriter
-from utils.LexionInference import LexiconInference
+
+from bistet.src import Config
+from bistet.src import BiSTET
+
+from bistet.src.utils.utils_functions import get_dataset_loader, subsequent_mask
+from bistet.src.utils.visualization import visualize_attention
+from bistet.src.utils.Word import Word
+from bistet.src.utils.WordLengthAccuracy import WordLengthAccuracy
+from bistet.src.utils.ExampleWriter import ExampleWriter
+from bistet.src.utils.LexionInference import LexiconInference
 
 
 class Validator(object):
@@ -14,7 +17,7 @@ class Validator(object):
 	def __init__(self, model, dataset_paths, config, device):
 		"""
 		
-		:param model: Vision Transformer
+		:param model: Vision Transfodrmer
 		:param dataset_paths: dataset paths is a list with triples (dataset_root_folder, annotation_file_name, datasetname)
 		:param config: Config class
 		:param device: GPU or CPU

@@ -1,6 +1,6 @@
 import torch.nn as nn
-from LayerNorm import LayerNorm
-from utils.utils_functions import clones
+from bistet.src.LayerNorm import LayerNorm
+from bistet.src.utils.utils_functions import clones
 
 
 class Decoder(nn.Module):

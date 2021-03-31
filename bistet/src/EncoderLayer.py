@@ -1,6 +1,6 @@
 import torch.nn as nn
-from SublayerConnection import SublayerConnection
-from utils.utils_functions import clones
+from bistet.src.SublayerConnection import SublayerConnection
+from bistet.src.utils.utils_functions import clones
 
 
 class EncoderLayer(nn.Module):

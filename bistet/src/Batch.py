@@ -1,7 +1,7 @@
 import torch
 import itertools
 from torch.autograd import Variable
-from utils.utils_functions import subsequent_mask
+from bistet.src.utils.utils_functions import subsequent_mask
 
 
 class Batch:

@@ -1,10 +1,10 @@
 import logging
 import torch
 import torch.nn as nn
-from Batch import Batch
-from Optimizer import LossCompute
-from utils.DataSummary import DataSummary
-from utils.utils_functions import get_dataset_loader, concat_ltr_rtl
+from bistet.src.Batch import Batch
+from bistet.src.Optimizer import LossCompute
+from bistet.src.utils.DataSummary import DataSummary
+from bistet.src.utils.utils_functions import get_dataset_loader, concat_ltr_rtl
 from torch.optim.lr_scheduler import MultiStepLR
 
 

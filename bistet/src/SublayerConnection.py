@@ -1,5 +1,5 @@
 import torch.nn as nn
-from LayerNorm import LayerNorm
+from bistet.src.LayerNorm import LayerNorm
 
 
 class SublayerConnection(nn.Module):

@@ -1,7 +1,7 @@
 import torch
 from math import log
 import re
-from Dataset import Dataset
+from bistet.src.Dataset import Dataset
 
 
 class Word(object):
