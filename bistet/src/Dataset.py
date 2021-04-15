@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 import torch
 import pickle
 import numpy as np
@@ -6,7 +7,10 @@ import torch.utils.data as data
 from six import BytesIO as IO
 from PIL import Image
 
-with open('../../static/kor_char_list.csv', 'r', encoding='utf-8') as char_file :
+current_file_path = Path(__file__).absolute()
+kor_char_csv_file_path = current_file_path.parents[2] / 'static/kor_char_list.csv'
+
+with open(kor_char_csv_file_path, 'r', encoding='utf-8') as char_file :
     char_data = char_file.read().splitlines()
     char_list = []
     for row in char_data :
