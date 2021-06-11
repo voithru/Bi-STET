@@ -22,7 +22,7 @@ class DataSummary(object):
 		self.timer.tic()
 		self.log_dir = log_dir
 		self.writer = SummaryWriter(
-			log_dir=self.log_dir
+			logdir=self.log_dir
 		)
 	
 	def add_summaries(self, loss_value, n_steps=1):
