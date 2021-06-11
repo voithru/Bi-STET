@@ -102,7 +102,7 @@ class BiSTET(object):
 
 		"""
 		
-		torch.save(self.model.state_dict(), os.path.join(self.config.OUPUT_FOLDER, file_name + '.cp'))
+		torch.save(self.model.state_dict(), os.path.join(self.config.OUPUT_FOLDER, file_name + '.cp'), _use_new_zipfile_serialization=False)
 		logging.info("Saved model: {}".format(file_name))
 
 	def load_model(self, path, file):
